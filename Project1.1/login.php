@@ -1,14 +1,15 @@
-<html>
+<!DOCTYPE html> 
+<html lang="en">
     <head>
         <title>Yellow Village</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="HandheldFriendly" content="true">
         <!--Bootstrap CSS-->
        <link rel="stylesheet"
-       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"    integrity=   
-       "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"   
+       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
        
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--Custom CSS-->
@@ -32,20 +33,23 @@
     </head>
     
     <body>
-        <?php include "nav.inc.php";?> 
         
+        <?php include "nav.inc.php";?> 
+        <main>
     <div class="login-form">
-        <form action="/examples/actions/confirmation.php" method="post">
+        <form action="process_login.php" method="post">
             <div class="avatar">
-                <img src="/Images/avatar.png" alt="Avatar">
+                <img src="http://18.210.125.27/Project/Images/avatar.png" alt="Avatar">
             </div>
             <h2 style="color:black" class="text-center">Login</h2>   
             <div class="form-group">
-                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                <input aria-label="email" type="email" class="form-control" id="email" name="email"
+                           maxlength="45" placeholder="Email" required="required">
             </div>
             
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                <input aria-label="password" type="password" class="form-control" id="pwd" name="pwd"
+                          maxlength="45"  placeholder="Password" required="required">
             </div> 
             
             <div class="form-group">
@@ -59,9 +63,12 @@
         </form>
         <p style="color: white;"class="text-center small">Don't have an account? <a href="#">Register here!</a></p>
     </div>
-        
+    </main>
     <?php include "footer.php";?> 
     </body>
 </html>
+
+
+
 
 

@@ -1,0 +1,110 @@
+CREATE TABLE `movie_db`.Customers
+(
+  Cust_ID INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(50) NOT NULL,
+  Membership_Pts INT,
+  Email VARCHAR(100) NOT NULL,
+  Password VARCHAR(10) NOT NULL,
+  PRIMARY KEY (Cust_ID),
+  UNIQUE (Email)
+);
+
+CREATE TABLE `movie_db`.Movie
+(
+  Movie_Title VARCHAR(50) NOT NULL,
+  Movie_ID INT NOT NULL AUTO_INCREMENT,
+  Ratings INT,
+  Description_ VARCHAR(800),
+  Release_Date_ DATE NOT NULL,
+  PRIMARY KEY (Movie_ID)
+);
+
+CREATE TABLE `movie_db`.Actor_
+(
+  Actor_Name VARCHAR(50) NOT NULL,
+  Age INT,
+  Description VARCHAR(800),
+  Actor_ID_ INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Actor_ID_)
+);
+
+CREATE TABLE `movie_db`.Genre
+(
+  Genre_ID INT NOT NULL AUTO_INCREMENT,
+  Genre_Name VARCHAR(50) NOT NULL,
+  Description VARCHAR(600) NOT NULL,
+  PRIMARY KEY (Genre_ID)
+);
+
+CREATE TABLE `movie_db`.Cinemas
+(
+  Name VARCHAR(50) NOT NULL,
+  Descriptions_ VARCHAR(800) NOT NULL,
+  Cinema_ID INT NOT NULL AUTO_INCREMENT,
+  Location VARCHAR(100) NOT NULL,
+  PRIMARY KEY (Cinema_ID),
+  UNIQUE (Location)
+);
+
+CREATE TABLE `movie_db`.Hall
+(
+  Capacity INT NOT NULL,
+  Hall_ID INT NOT NULL,
+  Type VARCHAR(100) NOT NULL,
+  Cinema_ID INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Hall_ID),
+  FOREIGN KEY (Cinema_ID) REFERENCES Cinemas(Cinema_ID)
+);
+
+CREATE TABLE `movie_db`.Seat
+(
+  SeatNo INT NOT NULL,
+  Hall_ID INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (SeatNo),
+  FOREIGN KEY (Hall_ID) REFERENCES Hall(Hall_ID)
+);
+
+CREATE TABLE `movie_db`.Acts_In
+(
+  Movie_ID INT NOT NULL,
+  Actor_ID_ INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Movie_ID, Actor_ID_),
+  FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID),
+  FOREIGN KEY (Actor_ID_) REFERENCES Actor_(Actor_ID_)
+);
+
+CREATE TABLE `movie_db`.Movie_Genre
+(
+  Movie_ID INT NOT NULL AUTO_INCREMENT,
+  Genre_ID INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Movie_ID, Genre_ID),
+  FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID),
+  FOREIGN KEY (Genre_ID) REFERENCES Genre(Genre_ID)
+);
+
+CREATE TABLE `movie_db`.Rate
+(
+  Comments VARCHAR(800) NOT NULL,
+  Rating_Number INT NOT NULL,
+  Date_Time DATETIME NOT NULL,
+  Cust_ID INT NOT NULL AUTO_INCREMENT,
+  Movie_ID INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Date_Time, Cust_ID),
+  FOREIGN KEY (Cust_ID) REFERENCES Customers(Cust_ID),
+  FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID),
+  UNIQUE (Cust_ID, Movie_ID)
+);
+
+CREATE TABLE `movie_db`.Movie_Tickets
+(
+  Ticket_ID INT NOT NULL,
+  Time_Slot DATETIME NOT NULL,
+  Price FLOAT NOT NULL,
+  Hall_ID INT NOT NULL AUTO_INCREMENT,
+  Cust_ID INT NOT NULL AUTO_INCREMENT,
+  Movie_ID INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (Ticket_ID),
+  FOREIGN KEY (Hall_ID) REFERENCES Hall(Hall_ID),
+  FOREIGN KEY (Cust_ID) REFERENCES Customers(Cust_ID),
+  FOREIGN KEY (Movie_ID) REFERENCES Movie(Movie_ID)
+);

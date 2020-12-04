@@ -1,14 +1,14 @@
-<html>
+<html lang="en">
     <head>
         <title>Yellow Village</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="HandheldFriendly" content="true">
         <!--Bootstrap CSS-->
        <link rel="stylesheet"
        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"    integrity=   
-       "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"crossorigin="anonymous">
+       "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
        
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
        
@@ -32,29 +32,30 @@
     
     <body>
         <?php  include "nav.inc.php";?> 
-        
+        <main>
     <div class="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post">
+        <form action="process_register.php" method="post">
 	<h2>Sign Up</h2>
 	<p>Please fill in this form to create an account!</p>
         <hr>
     <div class="form-group">
 	<div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user input-icon"></i></span>
-            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+           <input aria-label="name" type="text" class="form-control" id="name" name="name" placeholder="Name" required="required">
 	</div>
     </div>
     <div class="form-group">
 	<div class="input-group">
 	<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-	<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
+	<input aria-label="email" type="email" class="form-control" id="email" name="email" placeholder="Email Address" required="required">
 	</div>
     </div>
         
     <div class="form-group">
 	<div class="input-group">
 	<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-	<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+	<input aria-label="password" type="password" class="form-control" id="pwd" name="pwd"
+                          maxlength="45" placeholder="Password" required="required">
         </div>
     </div>
         
@@ -64,7 +65,8 @@
             <i class="fa fa-lock"></i>
      
 	</span>
-            <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+            <input aria-label="confirmpw" type="password" class="form-control" id="pwd_confirm" name="pwd_confirm"
+                           maxlength="45" placeholder="Confirm Password" required="required">
         </div>
     </div>
     
@@ -80,8 +82,9 @@
     <div style="color: white;" class="text-center">Already have an account? <a href="login.php">Login here</a></div>
     
     </div>
-        
+       </main> 
     <?php include "footer.php";?> 
     </body>
+
 </html>
 

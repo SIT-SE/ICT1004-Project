@@ -7,7 +7,7 @@
 
 </header>
         <nav class="navbar navbar-expand-sm navbar-dark text-secondary bg-dark"> 
-            <button class="navbar-toggler" data-toggle="collapse" aria-expanded="true"data-target="#mainNav">
+            <button  aria-label="burger" class="navbar-toggler" data-toggle="collapse" aria-expanded="true"data-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
@@ -23,16 +23,14 @@
                     <a class="nav-link" title="Cinemas" href="cinemas.php">Cinemas</a>
                 </li>     
                 <li class="nav-item">
-                    <a class="nav-link" title="Booking" href="booking.php">Booking</a>
-                </li> 
-                <li class="nav-item">
                     <a class="nav-link" title="FAQ" href="faq.php">FAQ</a>
-                </li>     
+                </li>  
                 <li class="nav-item">
-                    <a class="nav-link" title="Merch" href="merch.php">Merch</a>
-                </li> 
+                        <a class="nav-link" title="Admin" href="adminlogin.php">Admin</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                    
                        
                        <li class="nav-item">
                            <a class="nav-link" title="Login" href="login.php">Login</a>
@@ -45,4 +43,3 @@
             </div>
         </nav>
        
-
